@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  load_balancer:
+    build:
+      context: ./load_balancer
+    command: python load_balancer.py
+
+  server1:
+    build:
+      context: ./server1
+    entrypoint: ["/bin/sh", "-c", "read -p 'Press Enter to start server1'"]
+
+  server2:
+    build:
+      context: ./server2
+    entrypoint: ["/bin/sh", "-c", "read -p 'Press Enter to start server2'"]
+
+  client1:
+    build:
+      context: ./client1
+    entrypoint: ["/bin/sh", "-c", "read -p 'Press Enter to start client1'"]
+
+  client2:
+    build:
+      context: ./client2
+    entrypoint: ["/bin/sh", "-c", "read -p 'Press Enter to start client2'"]
