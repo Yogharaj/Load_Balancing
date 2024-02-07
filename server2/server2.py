@@ -6,8 +6,8 @@ assigned_port = server.getsockname()[1]
 print(f"Server is running on port {assigned_port}")
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 port=int(input("Enter load balancer port:"))
-#ip=input("Enter ip:")
-client.connect(('172.17.0.2', port)) 
+ip=input("Enter ip:")
+client.connect((ip, port)) 
 server.listen(5)
 
 while True:
